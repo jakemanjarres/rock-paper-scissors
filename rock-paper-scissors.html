@@ -63,34 +63,41 @@
            //Compares playerSelection to computerSelection and returns game outcome
            function playRound( playerSelection, computerSelection ) {
              if( playerSelection === computerSelection ){
+               window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " It's a tie!");
                return "You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " It's a tie!";
              } else {
 
                if( playerSelection === "rock" && computerSelection === "paper") {
                  computerWinCount += 1;
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose.");
                    return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
                  }
                if( playerSelection === "rock" && computerSelection === "scissors"){
                  playerWinCount += 1;
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win.");
                    return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
                  }
 
                if(playerSelection === "paper" && computerSelection === "rock") {
                  playerWinCount += 1;
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win.");
                  return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
                }
                if(playerSelection === "paper" && computerSelection === "scissors"){
                  computerWinCount += 1;
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose.");
                  return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
                }
 
                if(playerSelection === "scissors" && computerSelection === "rock") {
-                 computerWinCount += 1;
-                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
+                  computerWinCount += 1;
+                  window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose.");
+                  return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
                  }
                if(playerSelection === "scissors" && computerSelection === "paper"){
-                 playerWinCount += 1;
-                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
+                  playerWinCount += 1;
+                  window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win.");
+                  return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
                  }
 
                }

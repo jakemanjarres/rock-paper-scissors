@@ -11,4 +11,4 @@ The computer's choice is determined by a random number generator.
 * Paper beats rock
 * Scissors beats paper
 
-*Have fun!
+**Have fun!**

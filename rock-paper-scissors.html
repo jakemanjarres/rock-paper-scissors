@@ -4,48 +4,97 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
         <script>
+
+          // MAIN
+          var playerWinCount = 0;
+          var computerWinCount = 0;
+          game();
+
+          //FUNCTIONS
           //Random integer function to help determine computer choice in getComputerChoice
           function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min) ) + min;
           }
 
+          function game() {
+
+            for(var numberOfGames = 0; numberOfGames < 5; numberOfGames++){
+              var playerSelection = getPlayerChoice();
+              var computerSelection = getComputerChoice();
+              console.log(playRound(playerSelection, computerSelection));
+            }
+            if(playerWinCount > computerWinCount) {
+              return "You win the best of 5."
+            }
+            if(playerWinCount < computerWinCount) {
+              return "You lost the best of 5."
+            }
+          }
+
           //Prompts the player for choice input, checks for valid input
           function getPlayerChoice() {
+
             do{
               var playerChoice = prompt("Rock, Paper, or Scissors?", "Rock");
               playerChoice = playerChoice.toLowerCase();
-              if(playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors") {
-                window.alert("Only input 'rock', 'paper', or 'scissors'!")
+              if(playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors"){
+                return playerChoice;
+              } else {
+                  window.alert("Only input 'rock', 'paper', or 'scissors'!")
               }
             } while (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors")
+
           }
 
           //Returns computer choice, which is determined by a random number from 1-3
           function getComputerChoice(){
             var computerChoice = getRndInteger(1,4);
             if(computerChoice === 1) {
-              return "ROCK";
-            }
-
-            if(computerChoice === 2) {
-              return "PAPER";
-            }
-
-            if(computerChoice === 3) {
-              return "SCISSORS";
-            }
-
-            if(computerChoice < 1 || computerChoice > 3) {
+              return "rock";
+            } else if(computerChoice === 2) {
+              return "paper";
+            } else if(computerChoice === 3) {
+              return "scissors";
+            } else {
               return "Computer is cheating!";
             }
            }
 
+           //Compares playerSelection to computerSelection and returns game outcome
            function playRound( playerSelection, computerSelection ) {
+             if( playerSelection === computerSelection ){
+               return "You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " It's a tie!";
+             } else {
 
-           }
+               if( playerSelection === "rock" && computerSelection === "paper") {
+                 computerWinCount += 1;
+                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
+                 }
+               if( playerSelection === "rock" && computerSelection === "scissors"){
+                 playerWinCount += 1;
+                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
+                 }
 
+               if(playerSelection === "paper" && computerSelection === "rock") {
+                 playerWinCount += 1;
+                 return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
+               }
+               if(playerSelection === "paper" && computerSelection === "scissors"){
+                 computerWinCount += 1;
+                 return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
+               }
 
+               if(playerSelection === "scissors" && computerSelection === "rock") {
+                 computerWinCount += 1;
+                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
+                 }
+               if(playerSelection === "scissors" && computerSelection === "paper"){
+                 playerWinCount += 1;
+                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
+                 }
 
+               }
+             }
 
         </script>
     </head>

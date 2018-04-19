@@ -4,12 +4,10 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
         <script>
-
           // MAIN
           var playerWinCount = 0;
           var computerWinCount = 0;
-          game();
-
+          window.alert(game());
           //FUNCTIONS
           //Random integer function to help determine computer choice in getComputerChoice
           function getRndInteger(min, max) {
@@ -18,11 +16,12 @@
 
           function game() {
 
-            for(var numberOfGames = 0; numberOfGames < 5; numberOfGames++){
+            do {
               var playerSelection = getPlayerChoice();
               var computerSelection = getComputerChoice();
               console.log(playRound(playerSelection, computerSelection));
-            }
+            } while (playerWinCount < 3 && computerWinCount < 3)
+
             if(playerWinCount > computerWinCount) {
               return "You win the best of 5."
             }
@@ -63,40 +62,47 @@
            //Compares playerSelection to computerSelection and returns game outcome
            function playRound( playerSelection, computerSelection ) {
              if( playerSelection === computerSelection ){
-               window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " It's a tie!");
+               window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " It's a tie!" +
+                           " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                return "You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " It's a tie!";
              } else {
 
                if( playerSelection === "rock" && computerSelection === "paper") {
                  computerWinCount += 1;
-                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose.");
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose." +
+                 " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                    return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
                  }
                if( playerSelection === "rock" && computerSelection === "scissors"){
                  playerWinCount += 1;
-                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win.");
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win." +
+                              " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                    return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
                  }
 
                if(playerSelection === "paper" && computerSelection === "rock") {
                  playerWinCount += 1;
-                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win.");
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win." +
+                              " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                  return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
                }
                if(playerSelection === "paper" && computerSelection === "scissors"){
                  computerWinCount += 1;
-                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose.");
+                 window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose." +
+                              " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                  return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
                }
 
                if(playerSelection === "scissors" && computerSelection === "rock") {
                   computerWinCount += 1;
-                  window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose.");
+                  window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You lose." +
+                               " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You lose.";
                  }
                if(playerSelection === "scissors" && computerSelection === "paper"){
                   playerWinCount += 1;
-                  window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win.");
+                  window.alert("You chose: " + playerSelection + "." + "The computer chose: " + computerSelection + "." + " You win." +
+                               " You have " + playerWinCount + " points." + " The computer has " + computerWinCount + " points.");
                   return "You chose: " + playerSelection + "." + " The computer chose: " + computerSelection + "." + " You win.";
                  }
 
